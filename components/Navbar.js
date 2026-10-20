@@ -125,7 +125,7 @@ export default function Navbar() {
             href={`/category/${c.slug}`}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium whitespace-nowrap ${
               pathname === `/category/${c.slug}`
-                ? "bg-brand-light text-brand-dark"
+                ? "bg-brand-dark text-white"
                 : "text-ink hover:bg-soft"
             }`}
           >
