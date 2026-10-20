@@ -17,3 +17,23 @@ body {
   color: #1d271f;
   font-family: var(--font-hind), sans-serif;
 }
+
+
+
+
+
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 90s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}

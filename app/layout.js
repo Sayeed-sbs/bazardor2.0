@@ -2,6 +2,8 @@ import "./globals.css";
 import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Ticker from "@/components/Ticker";
+import Footer from "@/components/Footer";
 
 const hind = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -20,12 +22,14 @@ export default function RootLayout({ children }) {
       <body className={hind.variable}>
         <Suspense fallback={<div className="skeleton h-24 w-full"></div>}>
           <Navbar />
+          <Ticker />
         </Suspense>
         <main className="max-w-6xl mx-auto px-4 py-6 min-h-screen">
           <Suspense fallback={<div className="skeleton h-64 w-full"></div>}>
             {children}
           </Suspense>
         </main>
+        <Footer />
       </body>
     </html>
   );
