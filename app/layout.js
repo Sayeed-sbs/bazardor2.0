@@ -1,5 +1,7 @@
 import "./globals.css";
+import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
+import Navbar from "@/components/Navbar";
 
 const hind = Hind_Siliguri({
   subsets: ["bengali", "latin"],
@@ -15,7 +17,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="bn" data-theme="light">
-      <body className={hind.variable}>{children}</body>
+      <body className={hind.variable}>
+        <Suspense fallback={<div className="skeleton h-24 w-full"></div>}>
+          <Navbar />
+        </Suspense>
+        <main className="max-w-6xl mx-auto px-4 py-6 min-h-screen">
+          <Suspense fallback={<div className="skeleton h-64 w-full"></div>}>
+            {children}
+          </Suspense>
+        </main>
+      </body>
     </html>
   );
 }
