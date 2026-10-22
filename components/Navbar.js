@@ -4,6 +4,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { getCategories } from "@/lib/api";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -26,9 +27,10 @@ export default function Navbar() {
     setDate(today);
   }, []);
 
-  async function handleLogout() {
+    async function handleLogout() {
     setOpen(false);
     await authClient.signOut();
+    toast.success("সাইন আউট সম্পন্ন হয়েছে");
     router.push("/");
   }
 

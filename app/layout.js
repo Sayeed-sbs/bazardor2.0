@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Hind_Siliguri } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Ticker from "@/components/Ticker";
+import ToastBox from "@/components/ToastBox";
 import Footer from "@/components/Footer";
 
 const hind = Hind_Siliguri({
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           </Suspense>
         </main>
         <Footer />
+        <ToastBox />
       </body>
     </html>
   );
